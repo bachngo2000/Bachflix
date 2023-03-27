@@ -15,6 +15,13 @@
     <body>
         <div class="signInContainer">
             <div class="column">
+
+                <div class="header">
+                    <h3> Sign Up </h3>
+                    <span> to continue to Bachflix </span>
+
+                </div>
+
                 <form method="POST">
                     <input type="text" name="firstName" placeholder="First Name" required>
 
@@ -31,8 +38,6 @@
                     <input type="password" name="password2" placeholder="Confirm password" required>
 
                     <input type="submit" name="submitButton" value="SUBMIT">
-
-
 
                 </form>
             </div>
