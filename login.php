@@ -15,6 +15,7 @@ require_once("includes/classes/Constants.php");
 
         if($success) {
             // Store session
+            $_SESSION["userLoggedIn"] = $username;
             header("Location: index.php");
         }
     }
