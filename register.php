@@ -23,8 +23,7 @@ require_once("includes/classes/Constants.php");
 
         $password2 = FormSanitizer::sanitizeFormPassword($_POST["password2"]);
 
-        $account->validateFirstName($firstName);
-
+        $account->register($firstName, $lastName, $username, $email, $email2, $password, $password2);
     }
 ?>
 
@@ -47,13 +46,18 @@ require_once("includes/classes/Constants.php");
                 <form method="POST">
 
                     <?php echo $account->getError(Constants::$firstNameCharacters); ?>
-
                     <input type="text" name="firstName" placeholder="First Name" required>
 
+                    <?php echo $account->getError(Constants::$lastNameCharacters); ?>
                     <input type="text" name="lastName" placeholder="Last Name" required>
 
+                    <?php echo $account->getError(Constants::$usernameCharacters); ?>
+                    <?php echo $account->getError(Constants::$usernameTaken); ?>
                     <input type="text" name="username" placeholder="Username" required>
 
+                    <?php echo $account->getError(Constants::$emailsDontMatch); ?>
+                    <?php echo $account->getError(Constants::$emailInvalid); ?>
+                    <?php echo $account->getError(Constants::$emailTaken); ?>
                     <input type="email" name="email" placeholder="example@example.com" required>
 
                     <input type="email" name="email2" placeholder="Confirm email" required>
