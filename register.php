@@ -13,7 +13,7 @@ require_once("includes/classes/Constants.php");
 
         $lastName = FormSanitizer::sanitizeFormString($_POST["lastName"]);
 
-        $userName = FormSanitizer::sanitizeFormUsername($_POST["username"]);
+        $username = FormSanitizer::sanitizeFormUsername($_POST["username"]);
 
         $email = FormSanitizer::sanitizeFormEmail($_POST["email"]);
 
@@ -23,7 +23,12 @@ require_once("includes/classes/Constants.php");
 
         $password2 = FormSanitizer::sanitizeFormPassword($_POST["password2"]);
 
-        $account->register($firstName, $lastName, $username, $email, $email2, $password, $password2);
+        $success = $account->register($firstName, $lastName, $username, $email, $email2, $password, $password2);
+
+        if($success) {
+            // Store session
+            header("Location: index.php");
+        }
     }
 ?>
 
