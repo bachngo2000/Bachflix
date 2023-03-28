@@ -7,6 +7,7 @@
         public static $emailsDontMatch = "Your emails do not match";
         public static $emailInvalid = "Invalid email";
         public static $emailTaken = "Email already in use";
-
+        public static $passwordsDontMatch = "Passwords do not match";
+        public static $passwordLength = "Your password must be between 5 and 25 characters";
     }
 ?>
