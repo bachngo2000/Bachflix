@@ -6,3 +6,10 @@ function volumeToggle(button) {
     $(button).find("i").toggleClass("fa-volume-high");
 
 }
+
+function previewEnded() {
+    $(".previewVideo").toggle();
+    $(".previewImage").toggle();
+
+
+}
