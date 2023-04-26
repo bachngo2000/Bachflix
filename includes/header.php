@@ -15,6 +15,8 @@ $userLoggedIn = $_SESSION["userLoggedIn"];
     <head>
         <title>Welcome to Bachflix</title>
         <link rel="stylesheet" type="text/css" href="assets/style/style.css" />
+
+        <script src="https://kit.fontawesome.com/562239666d.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <div class='wrapper'>
