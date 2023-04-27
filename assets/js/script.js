@@ -68,3 +68,11 @@ function updateProgress(videoId, username, progress) {
         }
     })
 }
+
+function setFinished(videoId, username) {
+    $.post("ajax/setFinished.php", { videoId: videoId, username: username }, function(data) {
+        if(data !== null && data !== "") {
+            alert(data);
+        }
+    })
+}
