@@ -189,6 +189,10 @@ button i {
     white-space: nowrap;
 }
 
+.entities::-webkit-scrollbar{
+    display: none;
+  }
+
 .previewCategories {
     padding: 0 50px;
 }
