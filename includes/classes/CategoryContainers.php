@@ -20,6 +20,20 @@ class CategoryContainers {
 
         return $html . "</div>";
     }
+    
+    public function showCategory($categoryId, $title = null) {
+        $query = $this->con->prepare("SELECT * FROM categories WHERE id=:id");
+        $query->bindValue(":id", $categoryId);
+        $query->execute();
+
+        $html = "<div class='previewCategories noScroll'>";
+
+        while($row = $query->fetch(PDO::FETCH_ASSOC)) {
+            $html .= $this->getCategoryHtml($row, $title, true, true);
+        }
+
+        return $html . "</div>";
+    }
 
     private function getCategoryHtml($sqlData, $title, $tvShows, $movies) {
         $categoryId = $sqlData["id"];
@@ -40,9 +54,7 @@ class CategoryContainers {
         }
 
         $entitiesHtml = "";
-
         $previewProvider = new PreviewProvider($this->con, $this->username);
-        
         foreach($entities as $entity) {
             $entitiesHtml .= $previewProvider->createEntityPreviewSquare($entity);
         }
@@ -55,7 +67,8 @@ class CategoryContainers {
                     <div class='entities'>
                         $entitiesHtml
                     </div>
-                </div>";    }
+                </div>";
+    }
 
 }
 ?>
