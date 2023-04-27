@@ -11,7 +11,7 @@ $video->incrementViews();
 <div class="watchContainer">
 
 <div class="videoControls watchNav">
-    <button><i class="fa-solid fa-arrow-left"></i></button>
+    <button onclick="goBack()"><i class="fa-solid fa-arrow-left"></i></button>
     <h1><?php echo $video->getTitle(); ?></h1>
 </div>
 

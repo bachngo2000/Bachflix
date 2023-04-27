@@ -13,3 +13,7 @@ function previewEnded() {
 
 
 }
+
+function goBack() {
+    window.history.back();
+}
