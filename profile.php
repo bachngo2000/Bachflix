@@ -7,6 +7,8 @@ require_once("includes/classes/Constants.php");
 
 $detailsMessage = "";
 $passwordMessage = "";
+$subscriptionMessage = "";
+
 
 if(isset($_POST["saveDetailsButton"])) {
     $account = new Account($con);
@@ -69,7 +71,9 @@ if (isset($_GET['success']) && $_GET['success'] == 'true') {
     }
 }   
 else if (isset($_GET['success']) && $_GET['success'] == 'false') {
-      echo "user canceled agreement";
+    $subscriptionMessage = "<div class='alertError'>
+                            User cancelled or something went wrong!
+                        </div>";
 }
 
 ?>
@@ -128,6 +132,10 @@ else if (isset($_GET['success']) && $_GET['success'] == 'false') {
 
     <div class="formSection">
         <h2>Subscription</h2>
+
+        <div class="message">
+            <?php echo $subscriptionMessage; ?>
+        </div>
 
         <?php
 
