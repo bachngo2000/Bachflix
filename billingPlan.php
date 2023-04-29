@@ -37,35 +37,4 @@ $merchantPreferences->setReturnUrl($currentUrl . "?success=true")
 $plan->setPaymentDefinitions(array($paymentDefinition));
 $plan->setMerchantPreferences($merchantPreferences);
 
-//create plan
-try {
-    $createdPlan = $plan->create($apiContext);
-  
-    try {
-      $patch = new Patch();
-      $value = new PayPalModel('{"state":"ACTIVE"}');
-      $patch->setOp('replace')
-        ->setPath('/')
-        ->setValue($value);
-      $patchRequest = new PatchRequest();
-      $patchRequest->addPatch($patch);
-      $createdPlan->update($patchRequest, $apiContext);
-      $plan = Plan::get($createdPlan->getId(), $apiContext);
-  
-      // Output plan id
-      echo $plan->getId();
-    } catch (PayPal\Exception\PayPalConnectionException $ex) {
-      echo $ex->getCode();
-      echo $ex->getData();
-      die($ex);
-    } catch (Exception $ex) {
-      die($ex);
-    }
-  } catch (PayPal\Exception\PayPalConnectionException $ex) {
-    echo $ex->getCode();
-    echo $ex->getData();
-    die($ex);
-  } catch (Exception $ex) {
-    die($ex);
-  }
 ?>
