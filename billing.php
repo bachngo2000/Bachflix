@@ -7,12 +7,11 @@ $id = $plan->getId();
 use PayPal\Api\Agreement;
 use PayPal\Api\Payer;
 use PayPal\Api\Plan;
-use PayPal\Api\ShippingAddress;
 
 // Create new agreement
 $agreement = new Agreement();
 $agreement->setName('Subscription to Bachflix')
-  ->setDescription('Recurring payments to Bachflix')
+  ->setDescription('Recurring payments of $9.99 to Bachflix')
   ->setStartDate(gmdate("Y-m-d\TH:i:s\Z", strtotime("+7 days", time())));
 
 // Set plan id
